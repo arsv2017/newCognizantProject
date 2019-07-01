@@ -1,0 +1,89 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Showing quotes...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+            <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+
+        <style>
+
+          body {
+            background-color: #BBC3B8;
+
+         }
+
+        </style>
+
+
+        </head>
+        <body>
+        <div class="container">
+
+        <h1> INQUIRY RESULTS..." </h1>
+
+       <b>  <p th:text="${st.statement}"/>  </b>
+
+            <table style="width:100%" border="2 px solid black">
+                <tr>
+                    <th  style="text-align: center" border="2 px solid black">ID</th>
+                    <th style="text-align: center" border="2 px solid black">Number</th>
+                    <th style="text-align: center" border="2 px solid black"> Quote </th>
+                    <th style="text-align: center" border="2 px solid black"> Created by </th>
+                    <th style="text-align: center" border="2 px solid black"> Changed by </th>
+
+                </tr>
+                <tr  th:each="arrayEntry: ${resultSet}">
+                    <td style="border:2px solid black" align = "center" th:text="${arrayEntry.idNumber}"></td>
+                    <td style="border:2px solid black" align = "center" th:text="${arrayEntry.number}"></td>
+                    <td style="border:2px solid black" th:text="${arrayEntry.text}"></td>
+                    <td style="border:2px solid black" align = "center" th:text="${arrayEntry.CR}"></td>
+                    <td style="border:2px solid black" align = "center" th:text="${arrayEntry.CH}"></td>
+                </tr>
+                <br>
+            </table>
+
+
+        <br>
+
+        <form action="#" th:action="@{/index}" method="post">
+
+
+
+            <p><input type="submit" name="save" value="Save to QuoteBase" /> </p>
+
+
+        </form>
+
+
+
+            <form action="#" th:action="@{/index}" method="post">
+
+
+
+                <p><input type="submit" name="getBack" value="Make another request"/></p>
+
+            </form>
+        <br>
+
+
+        <br>
+
+
+
+        </div>
+
+
+        </body>
+        </html>

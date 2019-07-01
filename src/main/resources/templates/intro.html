@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Intro</title>
+
+    <title>LOG IN PAGE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+
+
+    <style>
+ body {
+        background-color: #BBC3B8;
+
+     }
+
+
+
+    </style>
+
+
+
+
+
+
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Log-in page</h1>
+
+    <b> <p th:text= "${st.statement}" /> </b>
+    <br>
+    <br>
+    <br>
+
+
+    <form action="#" th:action="@{/intro}" method="post">
+
+        <p><input type="text" th:field="*{user.userName}"/>  <font color="black">  <i>enter user name </i>  </font> </p>
+
+        <p><input type="password" th:field="*{user.password}"/>   <font color="black">  <i>enter password </i>  </font>  </p>
+
+        <p><input type="submit" name="findUser" value="Sign In"/>       </p>
+
+    </form>
+
+
+<br>
+    <br>
+
+    <form action="#" th:action="@{/intro}" method="post">
+
+            <p><input type="submit" name="newUser" value="NEW User? Register Here!!!"/></p>
+
+    </form>
+
+
+</div>
+
+
+</body>
+</body>
+</html>

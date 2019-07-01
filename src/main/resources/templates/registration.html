@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Registration</title>
+
+    <title>REGISTRATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+
+
+    <style>
+ body {
+        background-color: #BBC3B8;
+
+     }
+
+
+
+    </style>
+
+
+
+
+
+
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Registration for first-time users</h1>
+    <br>
+    <br>
+    <br>
+
+    <script>
+
+
+            function validation(obj){
+
+            valOne=obj.pasOne.value;
+            valTwo=obj.pasTwo.value;
+            if (valOne == valTwo && valOne !=""){
+            return true;
+            }
+            else {
+            alert ("Error!!! There is either a password mismatch or such username already exists. Try again!!!");
+            return false;
+            }
+            }
+
+        </script>
+
+
+
+
+
+    <form action="#" th:action="@{/intro}" method="post" onsubmit="return validation (this)" >
+
+        <p><input type="text" th:field="*{user.userName}"/>  <font color="black"> <i> enter username </i>    </font>  </p>
+
+        <p><input type="password" th:field="*{user.password}" id="pasOne"/>   <font color="black"> <i>enter password </i>  </font>  </p>
+
+        <p><input type="password"  id="pasTwo"/>   <font color="black">   <i>re-enter password </i>  </font>   </p>
+
+
+
+        <p><input type="submit" name="registerNew" value="Register" /></p>
+
+
+    </form>
+
+
+
+
+
+    <br>
+    <br>
+
+    <form action="#" th:action="@{/intro}" method="get">
+
+        <p><input type="submit" name="newUser" value="Back to Log-in page"/></p>
+
+    </form>
+
+
+</div>
+
+
+</body>
+</body>
+</html>
