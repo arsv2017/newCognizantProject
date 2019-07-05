@@ -10,7 +10,7 @@ import hello.Domain.Quote;
 import hello.Domain.User;
 import hello.DataBase.Intf_QuoteDAO;
 
-public class BusinessLogic implements  BusinessLogic_Intf {
+public class BusinessLogic implements BusinessLogic_Intf {
 
     Intf_QuoteDAO dao = new QuoteDao();
     Intf_UserDao userDAO = new UserDao();
@@ -33,11 +33,21 @@ public class BusinessLogic implements  BusinessLogic_Intf {
 
     public String retrieveQuote(int number) throws Exception {
 
-        String url = "https://numbersapi.p.rapidapi.com/" + number + "/trivia?fragment=true&notfound=floor&json=true";
+      /*  String url = "https://numbersapi.p.rapidapi.com/" + number + "/trivia?fragment=true&notfound=floor&json=true";
 
         HttpResponse response = Unirest.get(url)
                 .header("X-RapidAPI-Host", "numbersapi.p.rapidapi.com")
                 .header("X-RapidAPI-Key", "631f009423msh482132093aa83b4p1ff41bjsn468b481c8039")
+
+                .asJson();
+
+*/
+
+        String url = "http://arturssvarinskis-eval-test.apigee.net/getstarted";
+
+        HttpResponse response = Unirest.get(url)
+                // .header("X-RapidAPI-Host", "numbersapi.p.rapidapi.com")
+                //   .header("x-apikey", "qlUhcRaiSBV3yASlnd9L0VGRqbyE8D98")
 
                 .asJson();
 
@@ -56,8 +66,6 @@ public class BusinessLogic implements  BusinessLogic_Intf {
 
         return quote.getText();
     }
-
-
 
 
     public int saveQuote(Quote quote, String userName) {
@@ -87,11 +95,9 @@ public class BusinessLogic implements  BusinessLogic_Intf {
     }
 
 
-
-
     public Quote updateQuote(int ID, String text, String userName) {
 
-       String newText= text.replace('"', '.');
+        String newText = text.replace('"', '.');
         return dao.updateQuote(ID, newText, userName);
     }
 
@@ -100,7 +106,7 @@ public class BusinessLogic implements  BusinessLogic_Intf {
         return userDAO.saveUser(user);
     }
 
-    public boolean findUser(User user){
+    public boolean findUser(User user) {
 
         return userDAO.findUser(user);
 
